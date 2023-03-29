@@ -19,7 +19,13 @@ ref.https://zenn.dev/sprout2000/articles/5d7b350c2e85bc
 ## 注意事項
 
 - 認証付プロキシ下では途中でフリーズするため、プロキシレス環境で実行する（npmやyarnのconfigでプロキシサーバを指定しても解決できず）
-- プロキシレス環境でもnpmが勝手にプロキシ系の環境変数（http_proxy等）を見に行ってフリーズすることがあるので、設定している場合はexportで一時的に削除にしておく
+- プロキシレス環境でもnpmが勝手にプロキシ系の環境変数（http_proxy等）を見に行ってフリーズすることがあるので、設定している場合は一時的に削除しておく
+    ```bash
+    export http_proxy=
+    export https_proxy=
+    export HTTP_PROXY=
+    export HTTPS_PROXY=
+    ````
 - WSLの場合実行時に下記のようなエラーが出ることがある。
 
   > electron: error while loading shared libraries: libgbm.so.1: cannot open shared object file: no such file or directory
